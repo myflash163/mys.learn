@@ -12,7 +12,12 @@
 
     <!-- 项目属性 -->
     <properties>
-        <spring.version>4.3.8.RELEASE</spring.version>
+        <spring.version>4.3.3.RELEASE</spring.version>
+
+        <mybatis.spring.version>1.2.1</mybatis.spring.version>
+        <mysql.connector.version>5.1.29</mysql.connector.version>
+        <dbcp2.version>2.1.1</dbcp2.version>
+        <mybatis.version>3.3.0</mybatis.version>
     </properties>
 
     <dependencyManagement>
@@ -22,7 +27,41 @@
                 <artifactId>spring-core</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- jdbc mybatis begin -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-dbcp2</artifactId>
+                <version>${dbcp2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring.version}</version>
+            </dependency>
+            <!-- jdbc mybatis end -->
         </dependencies>
+
     </dependencyManagement>
 
 
