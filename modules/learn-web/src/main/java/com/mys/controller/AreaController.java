@@ -1,10 +1,14 @@
 package com.mys.controller;
 
-import org.springframework.stereotype.Controller;
 
 /**
  * Created by mengyusheng on 2017/5/3.
  */
-@Controller
+
 public class AreaController {
+    public static void main(String[] args) {
+        System.out.println(8816370270424L >> 42);
+
+    }
+
 }
