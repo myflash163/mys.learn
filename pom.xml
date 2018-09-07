@@ -22,6 +22,7 @@
     <module>modules/learn-web</module>
     <module>modules/learn-web</module>
     <module>modules/learn-worker</module>
+    <module>modules/learn-akka</module>
 
   </modules>
 

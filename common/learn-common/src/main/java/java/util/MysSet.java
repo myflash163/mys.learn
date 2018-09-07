@@ -1,4 +1,4 @@
 package java.util;
 
-public interface MysSet<E> extends MysCollection{
+public interface MysSet<E> extends MysCollection<E>{
 }
