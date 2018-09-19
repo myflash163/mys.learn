@@ -1,4 +1,4 @@
-package com.mys.akka4;
+package com.mys.akka4_1;
 
 import akka.actor.OneForOneStrategy;
 import akka.actor.Props;
@@ -8,6 +8,16 @@ import scala.concurrent.duration.Duration;
 import akka.japi.Function;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * https://blog.csdn.net/liubenlong007/article/details/54093889
+ * 这里可以对actor进行监督，在actor报出异常的时候进行处理。由于这个和生命周期也有关，所以放到这里一起说了。
+ *
+ * akka监督策略有两种：
+ *
+ * OneForOneStrategy 只对出问题的子actor进行处理. 这是默认策略
+ * AllForOneStrategy 对子actor以及他的所有兄弟actor进行处理
+ * 监督者，监督策略
+ */
 public class SuperVisor extends UntypedActor {
 
     @Override
@@ -33,7 +43,7 @@ public class SuperVisor extends UntypedActor {
                 });
     }
     @Override
-    public void onReceive(Object o) throws Throwable {
+    public void onReceive(Object o){
         if(o instanceof Props){
             getContext().actorOf((Props)o , "restartActor");
         }else{

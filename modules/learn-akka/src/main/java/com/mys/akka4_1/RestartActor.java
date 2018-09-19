@@ -1,4 +1,4 @@
-package com.mys.akka4;
+package com.mys.akka4_1;
 
 import akka.actor.UntypedActor;
 import scala.Option;
@@ -31,7 +31,7 @@ public class RestartActor extends UntypedActor {
 
 
     @Override
-    public void onReceive(Object o) throws Throwable {
+    public void onReceive(Object o){
         if(o == Msg.DONE){
             getContext().stop(getSelf());
         }else if(o == Msg.RESTART){

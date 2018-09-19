@@ -9,6 +9,10 @@ import scala.concurrent.duration.Duration;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+/**
+ * akka学习教程(五) inbox消息收件箱
+ * https://blog.csdn.net/liubenlong007/article/details/54377820
+ */
 public class InboxTest extends UntypedActor {
     private final LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 
@@ -32,12 +36,12 @@ public class InboxTest extends UntypedActor {
     }
 
     public static void main(String[] args) {
-        ActorSystem system = ActorSystem.create("inbox"/*, ConfigFactory.load("akka.conf")*/);
+        ActorSystem system = ActorSystem.create("inbox", ConfigFactory.load("akka.conf"));
         ActorRef inboxTest = system.actorOf(Props.create(InboxTest.class), "InboxTest");
 
         Inbox inbox = Inbox.create(system);
         inbox.watch(inboxTest);
-
+        //通过inbox来发送消息
         inbox.send(inboxTest,Msg.WORKING);
         inbox.send(inboxTest, Msg.DONE);
         inbox.send(inboxTest, Msg.CLOSE);

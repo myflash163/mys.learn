@@ -1,4 +1,4 @@
-package com.mys;
+package com.mys.akka2;
 
 import akka.actor.UntypedActor;
 
@@ -8,7 +8,7 @@ public class Greeter extends UntypedActor {
     }
 
     @Override
-    public void onReceive(Object message) throws Throwable {
+    public void onReceive(Object message) throws InterruptedException {
         if (message == Msg.GREET) {
             System.out.println("Hello World!");
             Thread.sleep(1000);
