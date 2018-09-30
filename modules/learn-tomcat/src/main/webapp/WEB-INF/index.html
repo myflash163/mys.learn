@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/showdown.min.js"></script>
+    <link href="../static/markdown.css" rel="stylesheet">
+</head>
+<body>
+## Write MyTomcat
+
+Tomcat是非常流行的Web Server，它还是一个满足Servlet规范的容器。那么想一想，Tomcat和我们的Web应用是什么关系？
+
+从感性上来说，我们一般需要把Web应用打成WAR包部署到Tomcat中，在我们的Web应用中，我们要指明URL被哪个类的哪个方法所处理（不论是原始的Servlet开发，还是现在流行的Spring MVC都必须指明）。
+
+由于我们的Web应用是运行在Tomcat中，那么显然，请求必定是先到达Tomcat的。Tomcat对于请求实际上会进行下面的处理：
+
+* 第一：提供Socket服务
+
+Tomcat的启动，必然是Socket服务，只不过它支持HTTP协议而已！
+
+这里其实可以扩展思考下，Tomcat既然是基于Socket，那么是基于BIO or NIO or AIO呢？
+
+* 第二：进行请求的分发
+
+要知道一个Tomcat可以为多个Web应用提供服务，那么很显然，Tomcat可以把URL下发到不同的Web应用。
+
+* 第三：需要把请求和响应封装成request/response
+
+我们在Web应用这一层，可从来没有封装过request/response的，我们都是直接使用的，这就是因为Tomcat已经为你做好了！
+
+作者：张丰哲
+链接：<a href="https://www.jianshu.com/p/dce1ee01fb90">https://www.jianshu.com/p/dce1ee01fb90</a>
+
+來源：简书
+简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+
+</body>
+<script type="text/javascript">
+    var text = document.body.innerHTML;
+    var converter = new showdown.Converter();
+    var html = converter.makeHtml(text);
+    document.body.innerHTML = html;
+</script>
+</html>

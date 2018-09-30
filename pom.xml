@@ -23,6 +23,7 @@
     <module>modules/learn-web</module>
     <module>modules/learn-worker</module>
     <module>modules/learn-akka</module>
+    <module>modules/learn-tomcat</module>
 
   </modules>
 
